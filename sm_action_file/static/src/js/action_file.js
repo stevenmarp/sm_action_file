@@ -1,35 +1,38 @@
-/** @odoo-module **/
+odoo.define('sm_action_file.action_file', function (require) {
+"use strict";
 
-import { registry } from "@web/core/registry";
-import { download } from "@web/core/network/download";
+var core = require('web.core');
+var framework = require('web.framework');
+var session = require('web.session');
 
-export function fileDownloadActionHandler(env, action) {
-    const params = action.params || {};
-    const model = params.model || "ir.attachment";
-    const field = params.field || "datas";
-    const id = params.id;
-    const filename = params.filename || "";
-    const filename_field = params.filename_field || "";
-    const downloadParam = params.download !== undefined ? params.download : true;
+function fileDownloadActionHandler(parent, action) {
+    var params = action.params || {};
+    var model = params.model || "ir.attachment";
+    var field = params.field || "datas";
+    var id = params.id;
+    var filename = params.filename || "";
+    var filename_field = params.filename_field || "";
+    var downloadParam = params.download !== undefined ? params.download : true;
 
-    const downloadData = {
-        model: model,
-        id: id,
-        field: field,
-        download: downloadParam,
-    };
-
-    if (filename) {
-        downloadData.filename = filename;
-    }
-    if (filename_field) {
-        downloadData.filename_field = filename_field;
-    }
-
-    download({
-        data: downloadData,
-        url: "/web/content",
+    framework.blockUI();
+    session.get_file({
+        url: '/web/content',
+        data: {
+            model: model,
+            id: id,
+            field: field,
+            filename_field: filename_field,
+            filename: filename,
+            download: downloadParam,
+        },
+        complete: framework.unblockUI,
+        error: function () {
+            framework.unblockUI();
+        }
     });
 }
 
-registry.category("actions").add("file_download", fileDownloadActionHandler);
+core.action_registry.add('file_download', fileDownloadActionHandler);
+
+return fileDownloadActionHandler;
+});
