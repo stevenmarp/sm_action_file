@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Client Action File Download",
-    "version": "15.0.1.0.0",
+    "version": "14.0.1.0.0",
     "category": "Extra Tools",
     "summary": "Trigger file downloads directly from server actions and python code",
     "description": """
@@ -19,11 +19,9 @@ server actions, or buttons by returning a client action without opening new tabs
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Steven Marp',
     'license': 'OPL-1',
     "depends": ["web"],
-    "assets": {
-        "web.assets_backend": [
-            "sm_action_file/static/src/js/action_file.js",
-        ],
-    },
+    "data": [
+        "views/assets.xml",
+    ],
     "installable": True,
     "application": False,
     "auto_install": False,
