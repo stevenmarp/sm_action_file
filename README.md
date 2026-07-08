@@ -1,10 +1,10 @@
-# Client Action File Download for Odoo 18
+# Client Action File Download for Odoo 19
 
 ![Banner](sm_action_file/static/description/banner.gif)
 
-[![Odoo 18](https://img.shields.io/badge/Odoo-18.0-purple)](https://www.odoo.com)
+[![Odoo 19](https://img.shields.io/badge/Odoo-19.0-purple)](https://www.odoo.com)
 [![License: OPL-1](https://img.shields.io/badge/License-OPL--1-red)](https://www.odoo.com)
-[![Version](https://img.shields.io/badge/version-18.0.1.0.0-blue)](https://github.com/stevenmarp/sm_action_file)
+[![Version](https://img.shields.io/badge/version-19.0.1.0.0-blue)](https://github.com/stevenmarp/sm_action_file)
 
 Allows Odoo developers to trigger file downloads directly from python backend methods, server actions, or buttons by returning a client action without opening new tabs or reloads.
 

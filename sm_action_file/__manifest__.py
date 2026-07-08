@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Client Action File Download",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "Extra Tools",
     "summary": "Trigger file downloads directly from server actions and python code",
     "description": """
